@@ -41,3 +41,5 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 module.exports = db;
+
+// npx sequelize model:create --name Phone --attributes brand:string,model:string,manufacturedYear:integer,ramSize:integer,cpu:string,screenDiagonal:float,isNfc:boolean
