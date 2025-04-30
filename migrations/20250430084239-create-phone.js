@@ -16,10 +16,10 @@ module.exports = {
         type: Sequelize.STRING
       },
       manufacturedYear: {
-        type: Sequelize.INTEGER
+        type: Sequelize.SMALLINT
       },
       ramSize: {
-        type: Sequelize.INTEGER
+        type: Sequelize.SMALLINT
       },
       cpu: {
         type: Sequelize.STRING
