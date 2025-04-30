@@ -1,7 +1,5 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
+const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Phone extends Model {
     /**
@@ -9,21 +7,60 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate(models) {
+    static associate (models) {
       // define association here
     }
   }
-  Phone.init({
-    brand: DataTypes.STRING,
-    model: DataTypes.STRING,
-    manufacturedYear: DataTypes.INTEGER,
-    ramSize: DataTypes.INTEGER,
-    cpu: DataTypes.STRING,
-    screenDiagonal: DataTypes.FLOAT,
-    isNfc: DataTypes.BOOLEAN
-  }, {
-    sequelize,
-    modelName: 'Phone',
-  });
+  Phone.init(
+    {
+      brand: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          len: [2, 50],
+          notEmpty: true,
+        },
+      },
+      model: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          len: [1, 50],
+          notEmpty: true,
+        },
+      },
+      manufacturedYear: {
+        type: DataTypes.SMALLINT,
+        validate: {
+          isInt: true,
+          min: 1990,
+          max: new Date().getFullYear(),
+        },
+      },
+      ramSize: {
+        type: DataTypes.SMALLINT,
+        allowNull: false,
+        validate: {
+          isInt: true,
+          min: 1,
+          max: 128,
+        },
+      },
+      cpu: DataTypes.STRING,
+      screenDiagonal: {
+        type: DataTypes.FLOAT,
+        allowNull: false,
+        validate: {
+          min: 3.5,
+          max: 8.0,
+        },
+      },
+      isNfc: { type: DataTypes.BOOLEAN, allowNull: false, defaultValue: false },
+    },
+    {
+      sequelize,
+      modelName: 'Phone',
+    }
+  );
   return Phone;
 };
