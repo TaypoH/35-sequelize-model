@@ -120,17 +120,17 @@ const { sequelize, Phone } = require('./models');
 
 // додавання нового телефону,
 (async function () {
-  //     const newPhone = {
-  //         brand: 'Apple',
-  //         model: 'iPhone 13',
-  //         manufacturedYear: 2021,
-  //         ramSize: 4,
-  //         cpu: 'A15 Bionic',
-  //         screenDiagonal: 6.1,
-  //         isNfc: false
-  //     }
-  //     const createdPhone = await Phone.create(newPhone)
-  //     console.log('createdPhone', createdPhone.get())
+      // const newPhone = {
+      //     brand: 'Apple',
+      //     model: 'iPhone 13',
+      //     manufacturedYear: 2021,
+      //     ramSize: 4,
+      //     cpu: 'A15 Bionic',
+      //     screenDiagonal: 6.1,
+      //     isNfc: false
+      // }
+      // const createdPhone = await Phone.create(newPhone)
+      // console.log('createdPhone', createdPhone.get())
 
 
   // отримання списку телефонів (* 3-я сторінка при перегляді по 4 телефони на сторінці,
@@ -188,8 +188,8 @@ const { sequelize, Phone } = require('./models');
 
 
   // *видалення телефонів 2010 року випуску.
-  const deletedPhonesCount = await Phone.destroy({
-    where: { manufacturedYear: 2010 },
-  });
-  console.log('deletedPhonesCount', deletedPhonesCount);
+  // const deletedPhonesCount = await Phone.destroy({
+  //   where: { manufacturedYear: 2010 },
+  // });
+  // console.log('deletedPhonesCount', deletedPhonesCount);
 })();
